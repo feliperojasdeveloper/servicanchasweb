@@ -35,11 +35,7 @@ const Header = () => {
       
       {isMobile ? (
         <>
-          <button 
-            className={`${styles.menuButton} ${menuOpen ? styles.open : ''}`}
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menú"
-          >
+          <button className={`${styles.menuButton} ${menuOpen ? styles.open : ''}`} onClick={() => setMenuOpen(!menuOpen)} aria-label="Menú">
             <span></span>
             <span></span>
             <span></span>

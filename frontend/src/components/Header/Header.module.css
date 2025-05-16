@@ -38,13 +38,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.7rem;
   z-index: 1001;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
   height: 24px;
+  position: relative;
 }
 
 .menuButton span {
@@ -53,10 +54,27 @@
   height: 3px;
   background: #333;
   transition: all 0.3s ease;
+  position: absolute;
+  left: 0;
 }
 
+.menuButton span:nth-child(1) {
+  top: 0;
+}
+
+.menuButton span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.menuButton span:nth-child(3) {
+  bottom: 0;
+}
+
+
 .menuButton.open span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .menuButton.open span:nth-child(2) {
@@ -64,7 +82,8 @@
 }
 
 .menuButton.open span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 .mobileNav {
@@ -117,5 +136,16 @@
 @media (min-width: 769px) {
   .menuButton, .mobileNav {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .menuButton {
+    width: 26px;
+    height: 20px;
+  }
+  
+  .menuButton span {
+    height: 2.5px;
   }
 }
