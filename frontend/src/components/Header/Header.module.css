@@ -1,62 +1,121 @@
+/* Estilos base del header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.1rem 5%;
+  padding: 1rem 5%;
   background: white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .logo {
-  height: 5rem;
-  transition: transform 0.3s ease;
+  height: 3rem;
+  z-index: 1001; /* Encima del menú móvil */
 }
 
-.logo:hover {
-  transform: scale(1.05);
-}
-
-nav {
+/* Menú desktop */
+.desktopNav {
   display: flex;
   gap: 2rem;
 }
 
-nav a {
+.desktopNav a {
   color: #333;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1.1rem;
-  position: relative;
-  padding: 0.5rem 0;
+  transition: color 0.3s;
+}
+
+.desktopNav a:hover {
+  color: #0077b6;
+}
+
+/* Menú hamburguesa (mobile) */
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+}
+
+.menuButton span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #333;
   transition: all 0.3s ease;
 }
 
-nav a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
+.menuButton.open span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.menuButton.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menuButton.open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+.mobileNav {
+  position: fixed;
+  top: 0;
   left: 0;
-  background-color: #0077b6; /* Color azul para el subrayado */
-  transition: width 0.3s ease;
-}
-
-nav a:hover {
-  color: #0077b6;
-}
-
-nav a:hover::after {
   width: 100%;
+  height: 100vh;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
 }
 
-nav a.active {
-  color: #0077b6;
+.mobileNav.show {
+  transform: translateY(0);
 }
 
-nav a.active::after {
+.mobileNav a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.mobileNav::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .desktopNav {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .menuButton, .mobileNav {
+    display: none;
+  }
 }
