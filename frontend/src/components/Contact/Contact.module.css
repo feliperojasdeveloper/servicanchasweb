@@ -1,0 +1,139 @@
+.section {
+  padding: 5rem 5%;
+  background: #f8f9fa;
+  text-align: center; /* Centra el título */
+}
+
+.title {
+  font-size: 1.7rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background: #3498db;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.formContainer {
+  flex: 1;
+  max-width: 26.8rem;
+  margin: 0;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px; /* Esquinas más redondeadas */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.formLabel {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.form input,
+.form textarea {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.form button {
+  background: #3498db;
+  color: white;
+  padding: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 1rem;
+}
+
+.form button:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .formContainer {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+}
+
+/* Estilos existentes se mantienen... */
+
+/* Nuevos estilos */
+.contactContainer {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.contactImage {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contactContainer {
+    flex-direction: column;
+  }
+  
+  .imageContainer {
+    order: 1; /* Opcional: imagen arriba en móviles */
+    margin-bottom: 2rem;
+  }
+  
+  .contactImage {
+    max-width: 100%;
+    max-height: 300px;
+  }
+}

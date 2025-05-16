@@ -1,0 +1,42 @@
+/* Estilos generales */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: white;
+  padding: 1rem;
+}
+
+nav a {
+  color: black;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.banner {
+  background: #0077b6;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
