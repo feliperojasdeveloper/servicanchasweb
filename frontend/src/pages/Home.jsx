@@ -1,5 +1,5 @@
 import Header from "../components/Header/Header";
-import Banner from "../components/Banner/Banner";
+import BannerSlider from "../components/Banner/BannerSlider";
 import FeaturedProducts from "../components/FeaturedProducts/FeaturedProducts";
 import Contact from "../components/Contact/Contact";
 import Footer from "../components/Footer/Footer";
@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Banner />
+      <BannerSlider />
       <FeaturedProducts />
       <Contact />
       <Footer />
