@@ -1,21 +1,25 @@
+require('dotenv').config();
 const express = require("express");
+const mongoose = require('mongoose');
 const cors = require("cors");
+const productRoutes = require('./routes/productRoutes');
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// Ruta de prueba
-app.get("/api/products", (req, res) => {
-  const products = [
-    { id: 1, name: "Piscina Rectangular", price: "$5000" },
-    { id: 2, name: "Piscina Ovalada", price: "$6000" },
-    { id: 3, name: "Piscina Infinity", price: "$8000" },
-  ];
-  res.json(products);
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Conectado a MONGO DB'))
+  .catch(err => console.error(err));
+
+app.use('/api/products', productRoutes);
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Algo salió mal!' });
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Servidor backend en http://localhost:${PORT}`);
+  console.log(`Servidor backend en el puerto: ${PORT}`);
 });
