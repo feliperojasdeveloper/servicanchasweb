@@ -11,7 +11,7 @@ const FeaturedProducts = () => {
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
       try {
-        const response = await fetch('/api/products/destacados'); // Vite proxy o URL completa
+        const response = await fetch('https://servicanchasweb.onrender.com/api/products/destacados'); 
         if (!response.ok) throw new Error('Error al obtener los productos destacados');
         const data = await response.json();
         setProducts(data);
