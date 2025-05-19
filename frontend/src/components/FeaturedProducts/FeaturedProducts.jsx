@@ -1,46 +1,50 @@
+import { useEffect, useState } from 'react';
 import styles from './FeaturedProducts.module.css';
 
-const products = [
-  {
-    id: 1,
-    name: "Piscina Rectangular Clásica",
-    price: "$8,500,000",
-    image: "https://i.imgur.com/JcQ6fYl.png",
-    destacado: 1
-  },
-  {
-    id: 2,
-    name: "Piscina Rectangular Clásica",
-    price: "$8,500,000",
-    image: "https://i.imgur.com/JcQ6fYl.png",
-    destacado: 1
-  },
-  {
-    id: 3,
-    name: "Piscina Rectangular Clásica",
-    price: "$8,500,000",
-    image: "https://i.imgur.com/JcQ6fYl.png",
-    destacado: 1
-  },
-];
 
 const FeaturedProducts = () => {
-  const destacados = products.filter(product => product.destacado === 1);
+
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchFeaturedProducts = async () => {
+      try {
+        const response = await fetch('/api/products/destacados'); // Vite proxy o URL completa
+        if (!response.ok) throw new Error('Error al obtener los productos destacados');
+        const data = await response.json();
+        setProducts(data);
+      } catch (err) {
+        console.error(err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchFeaturedProducts();
+  }, []);
+  if (loading) return <p className={styles.loading}>Cargando productos...</p>;
+  if (error) return <p className={styles.error}>{error}</p>;
 
   return (
     <section className={styles.section} id="productos">
       <h2 className={styles.title}>Productos Destacados</h2>
       <div className={styles.grid}>
-        {destacados.map((product) => (
-          <div key={product.id} className={styles.card}>
-            <img src={product.image} alt={product.name} />
-            <div className={styles.cardContent}>
-              <h3>{product.name}</h3>
-              <p className={styles.price}>{product.price}</p>
-              <button className={styles.button}>Cotizar</button>
+        {products.length > 0 ? (
+          products.map((product) => (
+            <div key={product._id} className={styles.card}>
+              <img src={product.image} alt={product.name} />
+              <div className={styles.cardContent}>
+                <h3>{product.name}</h3>
+                <p className={styles.price}>${product.price.toLocaleString()}</p>
+                <button className={styles.button}>Cotizar</button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>No hay productos destacados.</p>
+        )}
       </div>
       <button className={`${styles.button} ${styles.seeAllButton}`}>
         Ver todos los productos
