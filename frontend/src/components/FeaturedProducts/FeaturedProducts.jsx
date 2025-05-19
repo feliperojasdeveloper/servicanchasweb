@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './FeaturedProducts.module.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const FeaturedProducts = () => {
@@ -7,11 +8,15 @@ const FeaturedProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/products');
+  }
 
   useEffect(() => {
     const fetchFeaturedProducts = async () => {
       try {
-        const response = await fetch('https://servicanchasweb.onrender.com/api/products/destacados'); 
+        const response = await fetch('https://servicanchasweb.onrender.com/api/products/destacados');
         if (!response.ok) throw new Error('Error al obtener los productos destacados');
         const data = await response.json();
         setProducts(data);
@@ -46,7 +51,7 @@ const FeaturedProducts = () => {
           <p>No hay productos destacados.</p>
         )}
       </div>
-      <button className={`${styles.button} ${styles.seeAllButton}`}>
+      <button onClick={handleClick} className={`${styles.button} ${styles.seeAllButton}`}>
         Ver todos los productos
       </button>
     </section>

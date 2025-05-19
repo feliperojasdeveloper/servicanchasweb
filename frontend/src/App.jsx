@@ -1,20 +1,21 @@
-import Header from "./components/Header/Header"
-import FeaturedProducts from "./components/FeaturedProducts/FeaturedProducts";
-import Contact from "./components/Contact/Contact";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
-import BannerSlider from "./components/Banner/BannerSlider";
+import Products from "./pages/Products";
 
 function App() {
   return (
-    <div className="app">
+    <>
       <Header />
-      <BannerSlider />
-      <FeaturedProducts />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products/>} />
+      </Routes>
       <Footer />
       <ScrollToTop />
-    </div>
+    </>
   );
 }
 

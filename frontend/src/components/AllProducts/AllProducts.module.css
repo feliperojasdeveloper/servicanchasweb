@@ -1,0 +1,53 @@
+.section {
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.filtros {
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  width: 220px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.cardContent {
+  padding: 1rem;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.button {
+  margin-top: 0.5rem;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
