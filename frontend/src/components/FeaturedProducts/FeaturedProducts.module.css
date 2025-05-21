@@ -1,8 +1,8 @@
 .section {
   padding: 4rem 1rem;
   text-align: center;
-  max-width: 1200px; /* Ancho máximo para el contenido */
-  margin: 0 auto; /* Centra horizontalmente */
+  max-width: 1200px; 
+  margin: 0 auto;
 }
 
 .title {
@@ -77,8 +77,8 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s;
-  margin-top: auto; /* Empuja el botón hacia abajo */
-  align-self: center; /* Centra el botón */
+  margin-top: auto;
+  align-self: center;
 }
 
 .button:hover {

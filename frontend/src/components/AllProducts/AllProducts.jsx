@@ -80,7 +80,6 @@ const AllProducts = () => {
                                     <div className={styles.contentName}>
                                         <h3>{product.name}</h3>
                                     </div>
-                                    <p className={styles.price}>${product.price.toLocaleString()}</p>
                                     <button className={styles.button}>Cotizar</button>
                                 </div>
                             </div>

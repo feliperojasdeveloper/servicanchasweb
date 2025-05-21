@@ -42,7 +42,6 @@ const FeaturedProducts = () => {
               <img src={product.image} alt={product.name} />
               <div className={styles.cardContent}>
                 <h3>{product.name}</h3>
-                <p className={styles.price}>${product.price.toLocaleString()}</p>
                 <button className={styles.button}>Cotizar</button>
               </div>
             </div>
