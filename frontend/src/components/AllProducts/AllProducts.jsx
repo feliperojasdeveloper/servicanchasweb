@@ -7,7 +7,7 @@ const AllProducts = () => {
     const [categorySelected, setCategorySelected] = useState("todos");
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const productsPerPage = 12;
+    const productsPerPage = 10;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -49,7 +49,7 @@ const AllProducts = () => {
                 </button>
             </div>
             <div className={styles.contenTitle}>
-                <h2 className={styles.title}>Listado de productos</h2>
+                <h2 className={styles.title}>Catalogo de productos</h2>
             </div>
 
             <div className={styles.filtros}>

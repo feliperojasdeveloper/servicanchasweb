@@ -29,7 +29,7 @@ const banners = [
     subtitle: "Descuentos en kits de mantenimiento",
     image: "/banner-productos.jpg",
     ctaText: "Ver ofertas",
-    ctaLink: "#productos"
+    ctaLink: "/products"
   }
 ];
 
