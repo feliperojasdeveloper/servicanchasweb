@@ -7,7 +7,7 @@ const AllProducts = () => {
     const [categorySelected, setCategorySelected] = useState("todos");
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const productsPerPage = 6;
+    const productsPerPage = 12;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const AllProducts = () => {
 
     const changePage = (pageNumber) => {
         setCurrentPage(pageNumber);
-        window.scrollTo({ top: 0, behavior: "smooth" }); // opcional
+        window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     return (
@@ -58,7 +58,7 @@ const AllProducts = () => {
                     value={categorySelected}
                     onChange={(e) => {
                         setCategorySelected(e.target.value);
-                        setCurrentPage(1); // reiniciar a la primera página
+                        setCurrentPage(1); 
                     }}
                 >
                     <option value="todos">Todos</option>
